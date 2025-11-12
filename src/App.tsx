@@ -241,6 +241,7 @@ const MOCK_PRODUCTS: Product[] = [
     rating: 4.5,
     reviews: 128
   },
+  
   {
     id: '17',
     name: 'Riding Pants - Pro Series',
