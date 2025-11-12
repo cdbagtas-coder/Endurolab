@@ -29,7 +29,7 @@ import { toast } from 'sonner@2.0.3';
 const MOCK_PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Moto-Master Brake Rotor',
+    name: 'Moto Disc',
     price: 8399,
     category: 'Brakes',
     image: 'https://images.unsplash.com/photo-1682189165011-d4305d2b0ced?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RvcmN5Y2xlJTIwYnJha2UlMjBkaXNjJTIwcm90b3J8ZW58MXx8fHwxNzYyMzIzMDUwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
