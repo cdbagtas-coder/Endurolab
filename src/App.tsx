@@ -29,10 +29,10 @@ import { toast } from 'sonner@2.0.3';
 const MOCK_PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Moto-Master Brake Rotor',
+    name: 'Premium Brake Disc Rotor',
     price: 8399,
     category: 'Brakes',
-    image: 'https://www.picclickimg.com/ZRQAAOSwwFdmSgN9/Moto-Master-110218-Brake-Rotor-Fixed-Flame-Flamed.webp',
+    image: 'https://images.unsplash.com/photo-1682189165011-d4305d2b0ced?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RvcmN5Y2xlJTIwYnJha2UlMjBkaXNjJTIwcm90b3J8ZW58MXx8fHwxNzYyMzIzMDUwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     description: 'High-performance floating disc rotor with stainless steel construction. Compatible with most MX bikes.',
     make: ['Honda', 'Yamaha', 'Kawasaki', 'Suzuki', 'KTM', 'Husqvarna'],
     model: ['CRF450R', 'CRF250R', 'YZ450F', 'YZ250F', 'KX450F', 'KX250F', 'RM-Z450', '450 SX-F', '250 SX-F', 'FC 450', 'FC 250'],
@@ -46,7 +46,7 @@ const MOCK_PRODUCTS: Product[] = [
     name: 'Heavy-Duty Chain & Sprocket Kit',
     price: 5599,
     category: 'Drive & Transmission',
-    image: 'https://www.jimaimracing.co.uk/wp-content/uploads/2024/01/RENMXKITOR.jpg',
+    image: 'https://images.unsplash.com/photo-1657873961503-89a65459de2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RvcmN5Y2xlJTIwY2hhaW4lMjBzcHJvY2tldHxlbnwxfHx8fDE3NjA0NzQxNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     description: 'Complete chain and sprocket kit with reinforced links. Perfect for aggressive riding and racing.',
     make: ['Honda', 'Yamaha', 'Kawasaki', 'Suzuki', 'KTM', 'Husqvarna'],
     model: ['CRF450R', 'YZ450F', 'KX450F', 'RM-Z450', '450 SX-F', 'FC 450'],
