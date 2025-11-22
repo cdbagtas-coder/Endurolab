@@ -8,7 +8,7 @@ import { Switch } from './ui/switch';
 import { Separator } from './ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Slider } from './ui/slider';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { 
   ArrowLeft,
   User,
@@ -391,7 +391,7 @@ export function Settings({ onBack, onLogout, userInfo, onUpdateProfile }: Settin
                   </div>
                   <Slider
                     value={[settings.fontSize]}
-                    onValueChange={(value) => setSettings({ ...settings, fontSize: value[0] })}
+                    onValueChange={(value: number[]) => setSettings({ ...settings, fontSize: value[0] })}
                     min={14}
                     max={20}
                     step={1}
@@ -413,7 +413,7 @@ export function Settings({ onBack, onLogout, userInfo, onUpdateProfile }: Settin
                   </div>
                   <Switch
                     checked={settings.highContrast}
-                    onCheckedChange={(checked) => setSettings({ ...settings, highContrast: checked })}
+                    onCheckedChange={(checked: boolean) => setSettings({ ...settings, highContrast: checked })}
                   />
                 </div>
 
@@ -424,7 +424,7 @@ export function Settings({ onBack, onLogout, userInfo, onUpdateProfile }: Settin
                   </div>
                   <Switch
                     checked={settings.reducedMotion}
-                    onCheckedChange={(checked) => setSettings({ ...settings, reducedMotion: checked })}
+                    onCheckedChange={(checked: boolean) => setSettings({ ...settings, reducedMotion: checked })}
                   />
                 </div>
               </CardContent>
@@ -440,7 +440,7 @@ export function Settings({ onBack, onLogout, userInfo, onUpdateProfile }: Settin
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <Label className="text-slate-300">Language</Label>
-                  <Select value={settings.language} onValueChange={(value) => setSettings({ ...settings, language: value })}>
+                  <Select value={settings.language} onValueChange={(value: string) => setSettings({ ...settings, language: value })}>
                     <SelectTrigger className="bg-slate-900 border-slate-600 text-white">
                       <SelectValue />
                     </SelectTrigger>
@@ -475,7 +475,7 @@ export function Settings({ onBack, onLogout, userInfo, onUpdateProfile }: Settin
                   </div>
                   <Switch
                     checked={settings.notifications}
-                    onCheckedChange={(checked) => setSettings({ ...settings, notifications: checked })}
+                    onCheckedChange={(checked: boolean) => setSettings({ ...settings, notifications: checked })}
                   />
                 </div>
 
@@ -488,7 +488,7 @@ export function Settings({ onBack, onLogout, userInfo, onUpdateProfile }: Settin
                   </div>
                   <Switch
                     checked={settings.orderUpdates}
-                    onCheckedChange={(checked) => setSettings({ ...settings, orderUpdates: checked })}
+                    onCheckedChange={(checked: boolean) => setSettings({ ...settings, orderUpdates: checked })}
                     disabled={!settings.notifications}
                   />
                 </div>
@@ -500,7 +500,7 @@ export function Settings({ onBack, onLogout, userInfo, onUpdateProfile }: Settin
                   </div>
                   <Switch
                     checked={settings.promotions}
-                    onCheckedChange={(checked) => setSettings({ ...settings, promotions: checked })}
+                    onCheckedChange={(checked: boolean) => setSettings({ ...settings, promotions: checked })}
                     disabled={!settings.notifications}
                   />
                 </div>

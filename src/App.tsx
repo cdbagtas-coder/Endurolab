@@ -41,7 +41,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "./components/ui/dialog";
-import { toast } from "sonner@2.0.3";
+import { toast } from 'sonner';
 
 // Mock product data
 const MOCK_PRODUCTS: Product[] = [

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Checkbox } from './ui/checkbox';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface AuthPageProps {
   onLogin: (email: string, name: string) => void;
@@ -232,7 +232,7 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
                   <Checkbox
                     id="remember"
                     checked={rememberMe}
-                    onCheckedChange={(checked) => setRememberMe(checked as boolean)}
+                    onCheckedChange={(checked: boolean) => setRememberMe(checked)}
                     className="border-slate-600 data-[state=checked]:bg-teal-500 data-[state=checked]:border-teal-500"
                   />
                   <label htmlFor="remember" className="text-xs sm:text-sm text-slate-300 cursor-pointer">

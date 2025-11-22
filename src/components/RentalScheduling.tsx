@@ -9,7 +9,7 @@ import { Separator } from './ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { ScrollArea } from './ui/scroll-area';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { 
   Calendar as CalendarIcon, 
   Clock, 
@@ -376,7 +376,7 @@ export function RentalScheduling({ onBack, onScheduleComplete }: RentalSchedulin
                       mode="single"
                       selected={startDate}
                       onSelect={setStartDate}
-                      disabled={(date) => date < new Date()}
+                      disabled={(date: Date) => date < new Date()}
                       className="bg-slate-900 rounded-md border border-slate-700 w-full"
                     />
                   </div>
@@ -386,7 +386,7 @@ export function RentalScheduling({ onBack, onScheduleComplete }: RentalSchedulin
                       mode="single"
                       selected={endDate}
                       onSelect={setEndDate}
-                      disabled={(date) => date < (startDate || new Date())}
+                      disabled={(date: Date) => date < (startDate || new Date())}
                       className="bg-slate-900 rounded-md border border-slate-700 w-full"
                     />
                   </div>
