@@ -5,11 +5,12 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+    $usernameOrEmail = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
+    // Allow login with either username or email
+    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ? OR email = ?");
+    $stmt->bind_param("ss", $usernameOrEmail, $usernameOrEmail);
     $stmt->execute();
     $stmt->store_result();
     if ($stmt->num_rows > 0) {
