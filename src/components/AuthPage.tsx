@@ -39,7 +39,7 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
     try {
       let response, data;
       if (isLogin) {
-        response = await axios.post('/php/login.php', new URLSearchParams({
+        response = await axios.post('http://localhost/endurolab-api/login.php', new URLSearchParams({
           username: formData.email,
           password: formData.password
         }), {
@@ -53,7 +53,7 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
           toast.error(typeof data === 'string' ? data : 'Login failed');
         }
       } else {
-        response = await axios.post('/php/register.php', new URLSearchParams({
+        response = await axios.post('http://localhost/endurolab-api/register.php', new URLSearchParams({
           username: formData.name,
           email: formData.email,
           password: formData.password
