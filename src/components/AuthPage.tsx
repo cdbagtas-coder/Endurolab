@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Checkbox } from './ui/checkbox';
 import { toast } from 'sonner';
+import axios from 'axios';
 
 interface AuthPageProps {
   onLogin: (email: string, name: string) => void;
@@ -38,37 +39,33 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
     try {
       let response, data;
       if (isLogin) {
-        response = await fetch('/php/login.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            username: formData.email,
-            password: formData.password
-          })
+        response = await axios.post('/php/login.php', new URLSearchParams({
+          username: formData.email,
+          password: formData.password
+        }), {
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
-        data = await response.text();
-        if (data.includes('Login successful')) {
+        data = response.data;
+        if (typeof data === 'string' && data.includes('Login successful')) {
           toast.success('Welcome back!');
           onLogin(formData.email, formData.email.split('@')[0]);
         } else {
-          toast.error(data);
+          toast.error(typeof data === 'string' ? data : 'Login failed');
         }
       } else {
-        response = await fetch('/php/register.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            username: formData.name,
-            email: formData.email,
-            password: formData.password
-          })
+        response = await axios.post('/php/register.php', new URLSearchParams({
+          username: formData.name,
+          email: formData.email,
+          password: formData.password
+        }), {
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
-        data = await response.text();
-        if (data.includes('Registration successful')) {
+        data = response.data;
+        if (typeof data === 'string' && data.includes('Registration successful')) {
           toast.success('Account created successfully!');
           setIsLogin(true);
         } else {
-          toast.error(data);
+          toast.error(typeof data === 'string' ? data : 'Registration failed');
         }
       }
     } catch (err) {
