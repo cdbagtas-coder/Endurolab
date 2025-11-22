@@ -46,7 +46,8 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
         data = response.data;
-        if (typeof data === 'string' && data.includes('Login successful')) {
+        console.log('Login response:', data);
+        if (typeof data === 'string' && data.trim().includes('Login successful')) {
           toast.success('Welcome back!');
           onLogin(formData.email, formData.email.split('@')[0]);
         } else {
@@ -61,7 +62,8 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
         data = response.data;
-        if (typeof data === 'string' && data.includes('Registration successful')) {
+        console.log('Register response:', data);
+        if (typeof data === 'string' && data.trim().includes('Registration successful')) {
           toast.success('Account created successfully!');
           setIsLogin(true);
         } else {
