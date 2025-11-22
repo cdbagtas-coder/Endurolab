@@ -20,9 +20,8 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
     confirmPassword: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!isLogin) {
       // Sign up validation
       if (formData.password !== formData.confirmPassword) {
@@ -35,15 +34,48 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
       }
     }
 
-    // Simulate successful auth with delay
     setIsLoading(true);
-    const userName = formData.name || formData.email.split('@')[0];
-    toast.success(isLogin ? 'Welcome back!' : 'Account created successfully!');
-    
-    setTimeout(() => {
-      onLogin(formData.email, userName);
+    try {
+      let response, data;
+      if (isLogin) {
+        response = await fetch('/php/login.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            username: formData.email,
+            password: formData.password
+          })
+        });
+        data = await response.text();
+        if (data.includes('Login successful')) {
+          toast.success('Welcome back!');
+          onLogin(formData.email, formData.email.split('@')[0]);
+        } else {
+          toast.error(data);
+        }
+      } else {
+        response = await fetch('/php/register.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            username: formData.name,
+            email: formData.email,
+            password: formData.password
+          })
+        });
+        data = await response.text();
+        if (data.includes('Registration successful')) {
+          toast.success('Account created successfully!');
+          setIsLogin(true);
+        } else {
+          toast.error(data);
+        }
+      }
+    } catch (err) {
+      toast.error('Server error. Please try again.');
+    } finally {
       setIsLoading(false);
-    }, 500);
+    }
   };
 
   const handleGoogleLogin = () => {
