@@ -8,7 +8,7 @@ import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
 import { ScrollArea } from './ui/scroll-area';
 import { Progress } from './ui/progress';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { 
   Upload, 
   FileText, 
