@@ -178,7 +178,7 @@ const MOCK_PRODUCTS: Product[] = [
     price: 4479,
     category: "Controls",
     image:
-      "https://th.bing.com/th/id/R.4d59174a74287521d0aa2335a82ccd04?rik=aVFlLkj44GAajw&riu=http%3a%2f%2fwww.smxoffroad.com%2fcdn%2fshop%2ffiles%2fAurora30mm.webp%3fv%3d1729847150&ehk=YJ6PByRnTsnrT3zltGlML%2blPgZGSDOi9RrtNm5yFc%2fE%3d&risl=&pid=ImgRaw&r=0",
+      "https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/515548994_722758607162659_3991701535863450445_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFn86v-ROpV9VA3EViC6gdmEQixHXewMmARCLEdd7AyYOpbHMmuyYKlnGy1hOGLzwrEsuZOlWmbzNtbvTBjNj8M&_nc_ohc=3Ho0J54HPMMQ7kNvwGMd2r2&_nc_oc=AdkoGt6wF7D6_pHrhYQ-V5PRDM9GsnBmSdeGzTt5Y5wggOHbtFir0Hca0XSf6NIi3Xs&_nc_zt=23&_nc_ht=scontent.fmnl17-2.fna&_nc_gid=LSTs2ycNuOR8MB20moding&oh=00_AfjX5Lg3e3XgBAju1_F602zs7HXLhehEOAD_HiEhVDWv9g&oe=692C8C27",
     description:
       "Tapered aluminum handlebars with optimal bend. Lightweight and strong construction.",
     make: [
