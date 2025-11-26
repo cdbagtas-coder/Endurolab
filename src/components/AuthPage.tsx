@@ -55,7 +55,7 @@ export function AuthPage({ onLogin, defaultToLogin = false }: AuthPageProps) {
         }
       } else {
         response = await axios.post('http://localhost/endurolab-api/register.php', new URLSearchParams({
-          username: formData.name,
+          username: formData.email,
           email: formData.email,
           password: formData.password
         }), {
