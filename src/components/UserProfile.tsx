@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -125,10 +125,11 @@ const MOCK_ORDERS: Order[] = [
 ];
 
 export function UserProfile({ savedBikes, onAddBike, onRemoveBike, onClose, onLogout, onOpenSupport, onOpenSettings }: UserProfileProps) {
-  const [userData] = useState<UserData>({
-    firstName: 'Jake',
-    lastName: 'Morrison',
-    email: 'jake.morrison@endurolab.com',
+  // Load user data from localStorage
+  const [userData, setUserData] = useState<UserData>({
+    firstName: 'User',
+    lastName: 'Profile',
+    email: 'user@endurolab.com',
     phone: '+1 (555) 123-4567',
     address: '1234 Trail Blazer Road',
     city: 'Boulder',
@@ -139,6 +140,35 @@ export function UserProfile({ savedBikes, onAddBike, onRemoveBike, onClose, onLo
     joinDate: '2023-05-15',
     totalSpent: 76715
   });
+
+  // Load profile data from localStorage on mount
+  useEffect(() => {
+    const savedAuth = localStorage.getItem('endurolab_auth');
+    const savedProfile = localStorage.getItem('endurolab_profile');
+
+    if (savedAuth) {
+      const authData = JSON.parse(savedAuth);
+      setUserData(prev => ({
+        ...prev,
+        firstName: authData.name.split(' ')[0] || authData.name,
+        lastName: authData.name.split(' ')[1] || '',
+        email: authData.email
+      }));
+    }
+
+    if (savedProfile) {
+      const profileData = JSON.parse(savedProfile);
+      setUserData(prev => ({
+        ...prev,
+        phone: profileData.phone || prev.phone,
+        address: profileData.address || prev.address,
+        city: profileData.city || prev.city,
+        state: profileData.state || prev.state,
+        zipCode: profileData.zipCode || prev.zipCode,
+        bio: profileData.bio || prev.bio
+      }));
+    }
+  }, []);
 
   const [currentTab, setCurrentTab] = useState<'orders' | 'garage'>('orders');
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
