@@ -816,6 +816,23 @@ export default function App() {
       "endurolab_has_logged_in_before",
       "true",
     );
+    
+    // Initialize profile with logged-in user's email and name
+    const profileData = {
+      name: name,
+      email: email,
+      phone: "+63 912 345 6789",
+      bio: "Passionate enduro rider with 10+ years of experience. Always chasing the next trail!",
+      address: "1234 Trail Blazer Road",
+      city: "Manila",
+      state: "Metro Manila",
+      zipCode: "1000"
+    };
+    localStorage.setItem(
+      "endurolab_profile",
+      JSON.stringify(profileData),
+    );
+    
     setIsAuthenticated(true);
     setUserInfo(authData);
     // Reset navigation state to home page
